@@ -2,15 +2,15 @@
 
 {% block contenidoQueCambia %}
   
-<p>Buscamos los cursos con la camada nro: {{camada}}</p>
+<p>Buscamos las competencias con la camada nro: {{camada}}</p>
 
-{% if cursos %}
+{% if competencias %}
 
 <ul>
-  {% for curso in cursos %}
+  {% for competencia in competencias %}
     
     <li>
-      {{curso.nombre}} - {{curso.camada}}
+      {{competencia.nombre}} - {{competencia.camada}}
     </li>
       
   {% endfor %}

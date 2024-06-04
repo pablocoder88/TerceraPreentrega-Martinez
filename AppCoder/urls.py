@@ -1,26 +1,24 @@
 from django.urls import path
 from AppCoder.views import (
-  curso, 
-  lista_cursos, 
+  competencia, 
+  lista_competencias, 
   inicio, 
-  cursos, 
-  profesores, 
-  estudiantes, 
-  entregables,
-  curso_formulario,
+  competencias, 
+  entrenadores, 
+  nadadores, 
+  competencia_formulario,
   busqueda_camada,
   buscar
 )
 
 urlpatterns = [
-    path('agrega-curso/<nombre>/<camada>', curso),
-    path('lista-cursos/', lista_cursos),
+    path('agrega-competencia/<nombre>/<camada>', competencia),
+    path('lista-competencias/', lista_competencias),
     path('', inicio, name='Inicio'),
-    path('cursos/', cursos, name='Cursos'),
-    path('profesores/', profesores, name='Profesores'),
-    path('estudiantes/', estudiantes, name='Estudiantes'),
-    path('entregables/', entregables, name='Entregables'),
-    path('curso-formulario/', curso_formulario, name='CursoFormulario'),
+    path('competencias/', competencias, name='Competencias'),
+    path('entrenadores/', entrenadores, name='Entrenadores'),
+    path('nadadores/', nadadores, name='Nadadores'),
+    path('competencia-formulario/', competencia_formulario, name='CompetenciaFormulario'),
     path('busqueda-camada/', busqueda_camada, name='BusquedaCamada'),
-    path('buscar/', buscar, name='BuscarCurso'),
+    path('buscar/', buscar, name='BuscarCompetencia'),
 ]

@@ -1,6 +1,6 @@
 from django import forms
 
-class CursoFormulario(forms.Form):
+class CompetenciaFormulario(forms.Form):
 
-  curso = forms.CharField()
+  competencia = forms.CharField()
   camada = forms.IntegerField()

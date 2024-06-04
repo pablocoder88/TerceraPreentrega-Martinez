@@ -2,7 +2,7 @@
 
 {% block contenidoQueCambia %}
   
-<form action="{% url 'CursoFormulario' %}" method="post">{% csrf_token %}
+<form action="{% url 'CompetenciaFormulario' %}" method="post">{% csrf_token %}
 
   {{miFormulario.as_p}}
 

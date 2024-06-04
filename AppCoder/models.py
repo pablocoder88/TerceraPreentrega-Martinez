@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class Curso(models.Model):
+class Competencia(models.Model):
 
   nombre = models.CharField(max_length=40)
   camada = models.IntegerField()
@@ -11,12 +11,12 @@ class Curso(models.Model):
   
   class Meta():
 
-    verbose_name = 'Course'
-    verbose_name_plural = 'The courses'
+    verbose_name = 'Competence'
+    verbose_name_plural = 'Competences'
     ordering = ('nombre', 'camada')
     unique_together = ('nombre', 'camada')
 
-class Estudiante(models.Model):
+class Nadador(models.Model):
 
   nombre = models.CharField(max_length=30)
   apellido = models.CharField(max_length=30)
@@ -25,17 +25,10 @@ class Estudiante(models.Model):
   def __str__(self):
     return f'{self.nombre} - {self.apellido}'
 
-class Profesor(models.Model):
+class Entrenador(models.Model):
 
   nombre = models.CharField(max_length=30)
   apellido = models.CharField(max_length=30)
   email = models.EmailField()
   profesion = models.CharField(max_length=30)
-  cursos = models.ManyToManyField(Curso)
-
-class Entregable(models.Model):
-
-  nombre = models.CharField(max_length=30)
-  fechaDeEntrega = models.DateField()
-  entregado = models.BooleanField()
-  estudiante = models.ForeignKey(Estudiante, on_delete=models.CASCADE)
+  competencias = models.ManyToManyField(Competencia)

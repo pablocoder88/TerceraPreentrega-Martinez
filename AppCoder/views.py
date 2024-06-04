@@ -1,61 +1,57 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from .models import Curso
-from .forms import CursoFormulario
+from .models import Competencia
+from .forms import CompetenciaFormulario
 
 # Create your views here.
-def curso(req, nombre, camada):
+def competencia(req, nombre, camada):
 
-  nuevo_curso = Curso(nombre=nombre, camada=camada)
-  nuevo_curso.save()
+  nueva_competencia = Competencia(nombre=nombre, camada=camada)
+  nueva_competencia.save()
 
   return HttpResponse(f"""
-    <p>Curso: {nuevo_curso.nombre} - Camada: {nuevo_curso.camada} creado!</p>
+    <p>Competencia: {nueva_competencia.nombre} - Camada: {nueva_competencia.camada} creado!</p>
   """)
 
-def lista_cursos(req):
+def lista_competencias(req):
 
-  lista = Curso.objects.all()
+  lista = Competencia.objects.all()
 
-  return render(req, "lista_cursos.html", {"lista_cursos": lista})
+  return render(req, "lista_competencias.html", {"lista_competencias": lista})
 
 def inicio(req):
 
   return render(req, "inicio.html", {})
 
-def cursos(req):
+def competencias(req):
 
-  return render(req, "cursos.html", {})
+  return render(req, "competencias.html", {})
 
-def profesores(req):
+def entrenadores(req):
 
-  return render(req, "profesores.html", {})
+  return render(req, "entrenadores.html", {})
 
-def estudiantes(req):
+def nadadores(req):
 
-  return render(req, "estudiantes.html", {})
+  return render(req, "nadadores.html", {})
 
-def entregables(req):
-
-  return render(req, "entregables.html", {})
-
-def curso_formulario(req):
+def competencia_formulario(req):
 
   print('method: ', req.method)
   print('POST: ', req.POST)
 
   if req.method == 'POST':
 
-    miFormulario = CursoFormulario(req.POST)
+    miFormulario = CompetenciaFormulario(req.POST)
 
     if miFormulario.is_valid():
 
       data = miFormulario.cleaned_data
 
-      nuevo_curso = Curso(nombre=data['curso'], camada=data['camada'])
-      nuevo_curso.save()
+      nueva_competencia = Competencia(nombre=data['competencia'], camada=data['camada'])
+      nueva_competencia.save()
 
-      return render(req, "inicio.html", {"message": "Curso creado con éxito"})
+      return render(req, "inicio.html", {"message": "Competencia creada con éxito"})
     
     else:
 
@@ -63,9 +59,9 @@ def curso_formulario(req):
   
   else:
 
-    miFormulario = CursoFormulario()
+    miFormulario = CompetenciaFormulario()
 
-    return render(req, "curso_formulario.html", {"miFormulario": miFormulario})
+    return render(req, "competencia_formulario.html", {"miFormulario": miFormulario})
 
 
 def busqueda_camada(req):
@@ -78,9 +74,9 @@ def buscar(req):
 
     camada = req.GET["camada"]
 
-    cursos = Curso.objects.filter(camada__icontains=camada)
+    competencias = Competencia.objects.filter(camada__icontains=camada)
 
-    return render(req, "resultadoBusqueda.html", {"cursos": cursos, "camada": camada})
+    return render(req, "resultadoBusqueda.html", {"competencias": competencias, "camada": camada})
 
   else:
       
