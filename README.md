@@ -1,5 +1,11 @@
 portal de nadadores permite agregar desde una app nadadores, entrenadores con club, y competencias listadas por evento (tipo de carrera y distancia) y su record. Permite buscar los eventos dentro de las competencias y mostrar su record
 
+INGRESO AL ADMIN USUARIO pablo cla: 123456
+
+127.0.0.1:8000/admin
+
+
+
 CREAR COMPETENCIA:
 http://127.0.0.1:8000/app-coder/competencia-formulario/
 
@@ -11,6 +17,10 @@ http://127.0.0.1:8000/app-coder/entrenador-formulario/
 
 BUSCAR EVENTO
 http://127.0.0.1:8000/app-coder/busqueda-evento/
+
+
+
+
 
 
 
