@@ -2,8 +2,8 @@ from django import forms
 
 class CompetenciaFormulario(forms.Form):
 
-  competencia = forms.CharField()
-  camada = forms.IntegerField()
+  evento = forms.CharField()
+  record = forms.CharField()
   
   
 class NadadorFormulario(forms.Form):

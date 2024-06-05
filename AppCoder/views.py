@@ -5,13 +5,13 @@ from .forms import *
 
 
 # Create your views here.
-def competencia(req, nombre, camada):
+def competencia(req, evento, record):
 
-  nueva_competencia = Competencia(nombre=nombre, camada=camada)
+  nueva_competencia = Competencia(evento=evento, record=record)
   nueva_competencia.save()
 
   return HttpResponse(f"""
-    <p>Competencia: {nueva_competencia.nombre} - Camada: {nueva_competencia.camada} creado!</p>
+    <p>Competencia: {nueva_competencia.evento} creada! - su record es: {nueva_competencia.record} </p>
   """)
 
 def lista_competencias(req):
@@ -49,7 +49,7 @@ def competencia_formulario(req):
 
       data = miFormulario.cleaned_data
 
-      nueva_competencia = Competencia(nombre=data['competencia'], camada=data['camada'])
+      nueva_competencia = Competencia(evento=data['evento'], record=data['record'])
       nueva_competencia.save()
 
       return render(req, "inicio.html", {"message": "Competencia creada con éxito"})
@@ -65,23 +65,23 @@ def competencia_formulario(req):
     return render(req, "competencia_formulario.html", {"miFormulario": miFormulario})
 
 
-def busqueda_camada(req):
+def busqueda_evento(req):
 
-    return render(req, "busqueda_camada.html", {})
+    return render(req, "busqueda_evento.html", {})
 
 def buscar(req):
 
-  if req.GET["camada"]:
+  if req.GET["evento"]:
 
-    camada = req.GET["camada"]
+    evento = req.GET["evento"]
 
-    competencias = Competencia.objects.filter(camada__icontains=camada)
+    competencias = Competencia.objects.filter(evento=evento)
 
-    return render(req, "resultadoBusqueda.html", {"competencias": competencias, "camada": camada})
+    return render(req, "resultadoBusqueda.html", { "competencias": competencias, "evento": evento})
 
   else:
       
-      return render(req, "inicio.html", {"message": "No envias el dato de la camada"})
+      return render(req, "inicio.html", {"message": "No enviaste el dato del evento"})
     
     
 def nadador_formulario(req):

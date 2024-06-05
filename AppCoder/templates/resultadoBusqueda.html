@@ -2,7 +2,7 @@
 
 {% block contenidoQueCambia %}
   
-<p>Buscamos las competencias con la camada nro: {{camada}}</p>
+<p>Buscamos el Evento : {{evento}}</p>
 
 {% if competencias %}
 
@@ -10,7 +10,7 @@
   {% for competencia in competencias %}
     
     <li>
-      {{competencia.nombre}} - {{competencia.camada}}
+      {{competencia.evento}}
     </li>
       
   {% endfor %}

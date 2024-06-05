@@ -2,9 +2,9 @@ from django.contrib import admin
 from .models import Competencia, Entrenador, Nadador
 
 class CompetenciaAdmin(admin.ModelAdmin):
-  list_display = ['nombre', 'camada']
-  search_fields = ['nombre', 'camada']
-  list_filter = ['nombre']
+  list_display = ['evento', 'record']
+  search_fields = ['evento', 'record']
+  list_filter = ['evento']
 
 # Register your models here.
 admin.site.register(Competencia, CompetenciaAdmin)
