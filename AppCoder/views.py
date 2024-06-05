@@ -76,8 +76,9 @@ def buscar(req):
     evento = req.GET["evento"]
 
     competencias = Competencia.objects.filter(evento=evento)
+    
 
-    return render(req, "resultadoBusqueda.html", { "competencias": competencias, "evento": evento})
+    return render(req, "resultadoBusqueda.html", { "competencias": competencias, "evento": evento},  )
 
   else:
       

@@ -2,7 +2,7 @@
 
 {% block contenidoQueCambia %}
   
-<p>Buscamos el Evento : {{evento}}</p>
+<p>Buscamos el Evento : {{evento}} y su record </p>
 
 {% if competencias %}
 
@@ -10,12 +10,12 @@
   {% for competencia in competencias %}
     
     <li>
-      {{competencia.evento}}
+      {{competencia.evento}}, {{competencia.record}}
     </li>
       
   {% endfor %}
 
-</ul>
+ </ul>
 
 {% else %}
 
