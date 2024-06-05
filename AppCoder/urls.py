@@ -8,7 +8,9 @@ from AppCoder.views import (
   nadadores, 
   competencia_formulario,
   busqueda_camada,
-  buscar
+  buscar,
+  nadador_formulario,
+  entrenador_formulario
 )
 
 urlpatterns = [
@@ -21,4 +23,6 @@ urlpatterns = [
     path('competencia-formulario/', competencia_formulario, name='CompetenciaFormulario'),
     path('busqueda-camada/', busqueda_camada, name='BusquedaCamada'),
     path('buscar/', buscar, name='BuscarCompetencia'),
+    path('nadador-formulario/', nadador_formulario, name='NadadorFormulario'),
+    path('entrenador-formulario/', entrenador_formulario, name='EntrenadorFormulario')
 ]

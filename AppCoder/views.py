@@ -1,7 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from .models import Competencia
-from .forms import CompetenciaFormulario
+from .models import *
+from .forms import *
+
 
 # Create your views here.
 def competencia(req, nombre, camada):
@@ -81,3 +82,62 @@ def buscar(req):
   else:
       
       return render(req, "inicio.html", {"message": "No envias el dato de la camada"})
+    
+    
+def nadador_formulario(req):
+
+  print('method: ', req.method)
+  print('POST: ', req.POST)
+
+  if req.method == 'POST':
+
+    miFormularioN = NadadorFormulario(req.POST)
+
+    if miFormularioN.is_valid():
+
+      data = miFormularioN.cleaned_data
+
+      nuevo_nadador = Nadador(nombre=data['nadador'])
+      nuevo_nadador.save()
+
+      return render(req, "inicio.html", {"message": "Nadador creado con éxito"})
+    
+    else:
+
+      return render(req, "inicio.html", {"message": "Datos inválidos"})
+  
+  else:
+
+    miFormularioN = NadadorFormulario()
+
+    return render(req, "nadador_formulario.html", {"miFormularioN": miFormularioN})
+
+
+def entrenador_formulario(req):
+  
+  
+  print('method: ', req.method)
+  print('POST: ', req.POST)
+
+  if req.method == 'POST':
+
+    miFormularioE = EntrenadorFormulario(req.POST)
+
+    if miFormularioE.is_valid():
+
+      data = miFormularioE.cleaned_data
+
+      nuevo_entrenador = Entrenador(nombre=data['entrenador'], club=data['club'])
+      nuevo_entrenador.save()
+
+      return render(req, "inicio.html", {"message": "Entrenador creado con éxito"})
+    
+    else:
+
+      return render(req, "inicio.html", {"message": "Datos inválidos"})
+  
+  else:
+
+    miFormularioE = EntrenadorFormulario()
+
+    return render(req, "entrenador_formulario.html", {"miFormularioE": miFormularioE})

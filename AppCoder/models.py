@@ -11,10 +11,9 @@ class Competencia(models.Model):
   
   class Meta():
 
-    verbose_name = 'Competence'
-    verbose_name_plural = 'Competences'
-    ordering = ('nombre', 'camada')
-    unique_together = ('nombre', 'camada')
+    verbose_name = 'Competencia'
+    verbose_name_plural = 'Competencias'
+
 
 class Nadador(models.Model):
 
@@ -22,6 +21,12 @@ class Nadador(models.Model):
   apellido = models.CharField(max_length=30)
   email = models.EmailField(null=True)
   competencias = models.ManyToManyField(Competencia)
+  
+  class Meta():
+
+    verbose_name = 'Nadador'
+    verbose_name_plural = 'Nadadores'
+
 
   def __str__(self):
     return f'{self.nombre} - {self.apellido}'
@@ -32,3 +37,14 @@ class Entrenador(models.Model):
   apellido = models.CharField(max_length=30)
   email = models.EmailField()
   club = models.CharField(max_length=30)
+  
+  class Meta():
+    verbose_name = 'Entrenador'
+    verbose_name_plural = 'Entrenadores'
+    
+  def __str__(self):
+    return f'{self.nombre} - {self.apellido} - {self.club}'    
+
+
+
+  
