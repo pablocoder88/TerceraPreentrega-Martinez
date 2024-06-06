@@ -8,11 +8,15 @@ class CompetenciaFormulario(forms.Form):
   
 class NadadorFormulario(forms.Form):
 
-  nadador = forms.CharField()
+  nombre = forms.CharField()
+  apellido = forms.CharField()
   
+
+
   
   
 class EntrenadorFormulario(forms.Form):
 
-  entrenador = forms.CharField()
+  nombre = forms.CharField()
+  apellido = forms.CharField()
   club = forms.CharField()

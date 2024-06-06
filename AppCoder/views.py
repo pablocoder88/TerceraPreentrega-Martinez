@@ -98,7 +98,7 @@ def nadador_formulario(req):
 
       data = miFormularioN.cleaned_data
 
-      nuevo_nadador = Nadador(nombre=data['nadador'])
+      nuevo_nadador = Nadador(nombre=data['nombre'], apellido=data['apellido'] )
       nuevo_nadador.save()
 
       return render(req, "inicio.html", {"message": "Nadador creado con éxito"})
@@ -128,7 +128,7 @@ def entrenador_formulario(req):
 
       data = miFormularioE.cleaned_data
 
-      nuevo_entrenador = Entrenador(nombre=data['entrenador'], club=data['club'])
+      nuevo_entrenador = Entrenador(nombre=data['nombre'],apellido=data['apellido'] , club=data['club'])
       nuevo_entrenador.save()
 
       return render(req, "inicio.html", {"message": "Entrenador creado con éxito"})

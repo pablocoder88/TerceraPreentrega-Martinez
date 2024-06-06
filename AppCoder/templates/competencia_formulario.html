@@ -1,7 +1,9 @@
 {% extends 'padre.html' %}
 
 {% block contenidoQueCambia %}
-  
+
+<h1>Agregar Competencia</h1>
+
 <form action="{% url 'CompetenciaFormulario' %}" method="post">{% csrf_token %}
 
   {{miFormulario.as_p}}

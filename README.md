@@ -18,6 +18,8 @@ http://127.0.0.1:8000/app-coder/entrenador-formulario/
 BUSCAR EVENTO
 http://127.0.0.1:8000/app-coder/busqueda-evento/
 
+ejemplo a encontrar: 50m crol
+
 
 
 

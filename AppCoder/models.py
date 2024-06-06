@@ -20,7 +20,7 @@ class Nadador(models.Model):
   nombre = models.CharField(max_length=30)
   apellido = models.CharField(max_length=30)
   email = models.EmailField(null=True)
-  competencias = models.ManyToManyField(Competencia)
+
   
   class Meta():
 

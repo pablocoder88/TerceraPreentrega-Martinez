@@ -1,6 +1,8 @@
 {% extends 'padre.html' %}
 
 {% block contenidoQueCambia %}
+
+<h1>Agregar Nadador</h1>
   
 <form action="{% url 'NadadorFormulario' %}" method="post">{% csrf_token %}
 
